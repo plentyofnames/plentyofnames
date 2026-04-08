@@ -5,13 +5,15 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
 
 .banner {
   position: relative;
-  background: #000000;
+  background: #000000 url("banner_fill.png") center center repeat-x;
+  background-size: auto 100%;
   text-align: center;
   border-bottom: 3px solid #629aa9;
 }
 .banner img {
   display: block;
   width: 100%;
+  max-width: 940px;
   height: auto;
   max-height: 320px;
   object-fit: contain;
