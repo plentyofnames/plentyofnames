@@ -51,6 +51,7 @@
     const resetSoftwareView = () => {
       softwarePage.dataset.view = 'grid';
       softwareFrame.src = 'about:blank';
+      document.body.dataset.softwareView = 'grid';
     };
 
     tabs.forEach(tab => {
@@ -69,6 +70,7 @@
         if (!url) return;
         softwareFrame.src = url;
         softwarePage.dataset.view = 'frame';
+        document.body.dataset.softwareView = 'frame';
       });
     });
   </script>

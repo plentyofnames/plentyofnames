@@ -73,6 +73,7 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
   color: #333;
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
+body[data-software-view="frame"] .banner { display: none; }
 .software-page[data-view="grid"] .tile-grid { display: grid; }
 .software-page[data-view="grid"] .software-frame { display: none; }
 .software-page[data-view="frame"] .tile-grid { display: none; }
