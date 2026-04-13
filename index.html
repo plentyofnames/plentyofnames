@@ -13,7 +13,7 @@
   </header>
 
   <nav class="tabs" role="tablist">
-    <button class="tab active" role="tab" data-target="music">bandcamp</button>
+    <button class="tab active" role="tab" data-target="music">Music</button>
     <button class="tab" role="tab" data-target="shows">Software</button>
     <div class="social-links">
       <a href="https://www.instagram.com/plentyofnames" target="_blank" rel="noopener" title="Instagram">
@@ -26,7 +26,16 @@
   </nav>
 
   <section id="music" class="tab-content active">
-    <iframe src="https://plentyofnames.bandcamp.com" title="Music"></iframe>
+    <div class="album-embeds">
+      <div class="album-card">
+        <iframe src="https://bandcamp.com/EmbeddedPlayer/album=704217594/size=large/bgcol=1a1a1a/linkcol=2DBAE1/tracklist=true/transparent=true/" title="Magic People Mover EP"></iframe>
+        <a class="vinyl-link" href="https://www.discogs.com/release/36471667-Thronvio-Magic-People-Mover-EP" target="_blank" rel="noopener">Also available on vinyl</a>
+      </div>
+      <div class="album-card">
+        <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3722911460/size=large/bgcol=1a1a1a/linkcol=2DBAE1/tracklist=true/transparent=true/" title="Continuum Mechanics EP"></iframe>
+        <a class="vinyl-link" href="https://www.discogs.com/release/34166653-Giorgio-Spinetti-Continuum-Mechanics-EP" target="_blank" rel="noopener">Also available on vinyl</a>
+      </div>
+    </div>
   </section>
   <section id="shows" class="tab-content">
     <div class="software-page" data-view="grid">
@@ -36,10 +45,10 @@
           <span class="tile-title">PLOCK</span>
           <span class="tile-artist">Elektron Analog Rytm pattern editor</span>
         </a>
-        <a class="tile" href="#" style="visibility: hidden;" aria-hidden="true">
-          <div class="tile-cover">cover</div>
-          <span class="tile-title">Project Two</span>
-          <span class="tile-artist">by Plenty of Names</span>
+        <a class="tile" href="#" data-project="stolperbeats">
+          <div class="tile-cover stolperbeats-cover"></div>
+          <span class="tile-title">TRIPWIRE</span>
+          <span class="tile-artist">Stolperbeats pattern editor</span>
         </a>
       </div>
       <iframe class="software-frame" title="Software"></iframe>
@@ -53,7 +62,8 @@
     const softwareFrame = document.querySelector('.software-frame');
 
     const projectUrls = {
-      plock: 'https://plentyofnames.github.io/plock/plock.html'
+      plock: 'https://plentyofnames.github.io/plock/plock.html',
+      stolperbeats: 'https://plentyofnames.github.io/tripwire/'
     };
 
     const tabTargets = { music: 'music', software: 'shows' };

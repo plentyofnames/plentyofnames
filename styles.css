@@ -77,12 +77,41 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
   min-height: 0;
 }
 .tab-content.active { display: flex; }
-.tab-content iframe {
+#music.tab-content.active { display: block; }
+.tab-content > iframe {
   width: 100%;
   flex: 1;
   border: none;
   background: #fff;
   min-height: 70vh;
+}
+
+.album-embeds {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 20px 50px;
+  flex-wrap: wrap;
+}
+.album-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.album-embeds iframe {
+  border: 0;
+  width: 350px;
+  height: 620px;
+}
+.vinyl-link {
+  margin-top: 10px;
+  color: #888;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.vinyl-link:hover {
+  color: #fff;
 }
 
 .software-page {
@@ -153,5 +182,8 @@ body[data-software-view="frame"] .banner { display: none; }
   color: #666;
   font-size: 0.85rem;
   margin-top: 2px;
+}
+.stolperbeats-cover {
+  background: #1a1e2e url("tripwire.png") center top / cover no-repeat !important;
 }
 .tile:hover .tile-title { text-decoration: underline; }
