@@ -31,11 +31,11 @@
   <section id="music" class="tab-content active">
     <div class="album-embeds">
       <div class="album-card">
-        <iframe src="https://bandcamp.com/EmbeddedPlayer/album=704217594/size=large/bgcol=1a1a1a/linkcol=2DBAE1/tracklist=true/transparent=true/" title="Magic People Mover EP"></iframe>
+        <iframe data-src="https://bandcamp.com/EmbeddedPlayer/album=704217594/size=large/bgcol=1a1a1a/linkcol=2DBAE1/tracklist=true/transparent=true/" title="Magic People Mover EP"></iframe>
         <a class="vinyl-link" href="https://www.discogs.com/release/36471667-Thronvio-Magic-People-Mover-EP" target="_blank" rel="noopener">Also available on vinyl</a>
       </div>
       <div class="album-card">
-        <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3722911460/size=large/bgcol=1a1a1a/linkcol=2DBAE1/tracklist=true/transparent=true/" title="Continuum Mechanics EP"></iframe>
+        <iframe data-src="https://bandcamp.com/EmbeddedPlayer/album=3722911460/size=large/bgcol=1a1a1a/linkcol=2DBAE1/tracklist=true/transparent=true/" title="Continuum Mechanics EP"></iframe>
         <a class="vinyl-link" href="https://www.discogs.com/release/34166653-Giorgio-Spinetti-Continuum-Mechanics-EP" target="_blank" rel="noopener">Also available on vinyl</a>
       </div>
     </div>
@@ -77,9 +77,17 @@
       document.body.dataset.softwareView = 'grid';
     };
 
+    const loadMusicEmbeds = () => {
+      document.querySelectorAll('#music iframe[data-src]').forEach(iframe => {
+        iframe.src = iframe.dataset.src;
+        iframe.removeAttribute('data-src');
+      });
+    };
+
     const activateTab = (sectionId) => {
       tabs.forEach(t => t.classList.toggle('active', t.dataset.target === sectionId));
       contents.forEach(c => c.classList.toggle('active', c.id === sectionId));
+      if (sectionId === 'music') loadMusicEmbeds();
     };
 
     const openProject = (project) => {
