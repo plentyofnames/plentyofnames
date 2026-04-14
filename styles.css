@@ -35,6 +35,22 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
   background: #222;
   border-bottom: 1px solid #333;
 }
+.tabs-logo {
+  display: none;
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 36px;
+}
+.tabs-logo img {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+body[data-software-view="frame"] .tabs-logo {
+  display: block;
+}
 .social-links {
   position: absolute;
   right: 16px;
