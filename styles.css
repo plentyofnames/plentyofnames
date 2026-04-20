@@ -106,7 +106,7 @@ body[data-software-view="frame"] .tabs-logo {
   display: flex;
   justify-content: center;
   gap: 40px;
-  padding: 40px 20px 50px;
+  padding: 40px 20px 96px;
   flex-wrap: wrap;
 }
 .album-card {
@@ -203,3 +203,69 @@ body[data-software-view="frame"] .banner { display: none; }
   background: #1a1e2e url("tripwire.png") center top / cover no-repeat !important;
 }
 .tile:hover .tile-title { text-decoration: underline; }
+
+.legal-overlay {
+  display: none;
+  flex: 1;
+  min-height: 0;
+  background: #1a1a1a;
+}
+.legal-overlay.active { display: flex; }
+.legal-frame {
+  width: 100%;
+  flex: 1;
+  border: none;
+  min-height: 70vh;
+}
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: #111;
+  border-top: 1px solid #333;
+  padding: 8px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+.site-footer a {
+  color: #666;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.site-footer a:hover { color: #aaa; }
+
+.legal-page {
+  display: none;
+}
+.legal-page.active {
+  display: block;
+}
+.legal-content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.legal-content h1 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin: 0 0 32px;
+}
+.legal-content h2 {
+  color: #fff;
+  font-size: 1rem;
+  margin: 28px 0 8px;
+}
+.legal-content a {
+  color: #2DBAE1;
+  text-decoration: none;
+}
+.legal-content a:hover { text-decoration: underline; }

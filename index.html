@@ -58,11 +58,22 @@
     </div>
   </section>
 
+  <div class="legal-overlay" id="legal-overlay">
+    <iframe class="legal-frame" id="legal-frame" title="Legal"></iframe>
+  </div>
+
+  <footer class="site-footer">
+    <a href="#impressum" class="legal-link" data-legal="impressum.html">Impressum</a>
+    <a href="#datenschutz" class="legal-link" data-legal="datenschutz.html">Datenschutzerklärung</a>
+  </footer>
+
   <script>
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.tab-content');
     const softwarePage = document.querySelector('.software-page');
     const softwareFrame = document.querySelector('.software-frame');
+    const legalOverlay = document.getElementById('legal-overlay');
+    const legalFrame = document.getElementById('legal-frame');
 
     const projectUrls = {
       plock: 'https://plentyofnam.es/plock/plock.html',
@@ -74,6 +85,18 @@
     const resetSoftwareView = () => {
       softwarePage.dataset.view = 'grid';
       softwareFrame.src = 'about:blank';
+      document.body.dataset.softwareView = 'grid';
+    };
+
+    const openLegal = (file) => {
+      legalFrame.src = file;
+      legalOverlay.classList.add('active');
+      document.body.dataset.softwareView = 'frame';
+    };
+
+    const closeLegal = () => {
+      legalOverlay.classList.remove('active');
+      legalFrame.src = 'about:blank';
       document.body.dataset.softwareView = 'grid';
     };
 
@@ -98,12 +121,20 @@
       document.body.dataset.softwareView = 'frame';
     };
 
+    const legalFiles = { impressum: 'impressum.html', datenschutz: 'datenschutz.html' };
+
     const navigateFromHash = () => {
       const hash = location.hash.replace('#', '');
       const parts = hash.split('/');
       const page = parts[0] || 'music';
       const project = parts[1];
 
+      if (legalFiles[page]) {
+        openLegal(legalFiles[page]);
+        return;
+      }
+
+      closeLegal();
       resetSoftwareView();
       const sectionId = tabTargets[page] || 'music';
       activateTab(sectionId);
@@ -120,6 +151,23 @@
         activateTab(target);
         const hashName = target === 'shows' ? 'software' : 'music';
         location.hash = hashName;
+        window.scrollTo(0, 0);
+      });
+    });
+
+    document.querySelector('.tabs-logo').addEventListener('click', (e) => {
+      if (legalOverlay.classList.contains('active')) {
+        e.preventDefault();
+        closeLegal();
+        location.hash = 'music';
+      }
+    });
+
+    document.querySelectorAll('.legal-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        openLegal(link.dataset.legal);
+        location.hash = link.getAttribute('href').replace('#', '');
       });
     });
 
